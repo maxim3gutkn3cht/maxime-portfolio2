@@ -2,9 +2,9 @@ vCard - Personal Portfolio
 
 # sidebar
 
-alt = Richard hanrick
-Richard hanrick
-Web developer
+alt = Maxime Gutknecht
+Maxime Gutknecht
+Ingénieur des médias
 
 Show Contacts
 
