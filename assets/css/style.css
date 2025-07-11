@@ -1,49 +1,24 @@
 /*-----------------------------------*\
-  #style.css (RESET)
+  #style.css (VERSION FLAT & CLEAN)
 \*-----------------------------------*/
 
 /**
  * copyright 2025 @maximegutknecht
+ * Design flat, angles droits, fond blanc, éléments en brun foncé
  */
 
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
 
 :root {
-  /* colors */
   --background: #ffffff;
   --card-background: #e8dfd1;
   --text-dark-brown: #5a3e36;
-
-  /* typography */
   --ff-title: 'League Spartan', sans-serif;
   --ff-body: 'Lato', sans-serif;
-
-  --fs-1: 24px;
-  --fs-2: 18px;
-  --fs-3: 17px;
-  --fs-4: 16px;
-  --fs-5: 15px;
-  --fs-6: 14px;
-  --fs-7: 13px;
-  --fs-8: 11px;
-
-  /* font-weight */
-  --fw-300: 300;
-  --fw-400: 400;
-  --fw-500: 500;
-  --fw-600: 600;
-
-  /* transition */
-  --transition-1: 0.25s ease;
-  --transition-2: 0.5s ease-in-out;
+  --transition-fast: 0.25s ease;
 }
 
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
-
+/* RESET */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -53,131 +28,107 @@
 body {
   background: var(--background);
   font-family: var(--ff-body);
+  color: var(--text-dark-brown);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--ff-title);
-  color: var(--text-dark-brown);
 }
 
-p {
+p, li, span, a, button, input, textarea {
   font-family: var(--ff-body);
   color: var(--text-dark-brown);
 }
 
-/*-----------------------------------*\
-  #REUSED STYLE
-\*-----------------------------------*/
+/* GENERAL LAYOUT */
+main, section, article, aside, header, footer, nav, div {
+  background: var(--background);
+  border-radius: 0;
+}
 
-.sidebar,
-article,
-.service-item,
-.content-card,
-.testimonials-modal,
-.project-item > a,
-.blog-post-item > a,
-.mapbox,
-.form-input,
-.form-btn {
+/* CARDS & HIGHLIGHTS */
+.sidebar, article, .service-item, .content-card, .testimonials-modal,
+.project-item > a, .blog-post-item > a, .mapbox, .form-input, .form-btn {
   background: var(--card-background);
   border-radius: 0;
   border: 1px solid var(--text-dark-brown);
-}
-
-.icon-box,
-.modal-close-btn,
-.filter-select,
-.select-list,
-.select-item button {
-  border-radius: 0;
-  color: var(--text-dark-brown);
-}
-
-.navbar,
-.navbar-link.active,
-.social-link,
-.info_more-btn,
-.contact-link,
-.form-btn {
-  color: var(--text-dark-brown);
-}
-
-/* Buttons and links */
-button,
-a {
-  background: none;
-  border: none;
-  color: var(--text-dark-brown);
-  cursor: pointer;
-}
-
-/* Remove all shadows */
-.sidebar,
-article,
-.service-item,
-.content-card,
-.testimonials-modal,
-.project-item > a,
-.blog-post-item > a,
-.mapbox,
-.form-btn {
   box-shadow: none;
 }
 
-/*-----------------------------------*\
-  #UTILITIES
-\*-----------------------------------*/
-
-.separator,
-.timeline-item::after {
-  background: var(--text-dark-brown);
+/* ICONS & PICTOS */
+.icon-box, .modal-close-btn, .filter-select, .select-list,
+.select-item button, .project-item-icon-box, .navbar-link.active,
+.info_more-btn, .form-btn {
   border-radius: 0;
-}
-
-/*-----------------------------------*\
-  #OVERRIDE SPECIFIC CURRENT YELLOW TO DARK BROWN
-\*-----------------------------------*/
-
-.icon-box,
-.navbar-link.active,
-.info_more-btn,
-.form-btn,
-.project-item-icon-box,
-.filter-item button.active {
   color: var(--text-dark-brown);
+  background: none;
 }
 
-/* Scrollbar */
+/* BUTTONS & LINKS */
+button, a {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+/* INPUTS & FORMS */
+input, textarea {
+  background: var(--card-background);
+  border: 1px solid var(--text-dark-brown);
+  border-radius: 0;
+  padding: 10px;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--text-dark-brown);
+}
+
+/* NAVBAR */
+.navbar {
+  background: var(--background);
+  border-radius: 0;
+  border-top: 1px solid var(--text-dark-brown);
+}
+
+.navbar-link {
+  color: var(--text-dark-brown);
+  font-family: var(--ff-body);
+}
+
+.navbar-link.active {
+  font-weight: bold;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
 ::-webkit-scrollbar-thumb {
   background: var(--text-dark-brown);
   border-radius: 0;
 }
 
-/* Adjust modal overlay */
-.overlay {
-  background: rgba(90, 62, 54, 0.8);
+/* SEPARATORS */
+.separator {
+  height: 1px;
+  background: var(--text-dark-brown);
+  border-radius: 0;
 }
 
-/* Adjust links hover */
-a:hover,
-button:hover {
-  opacity: 0.7;
-}
+/* UTILITIES */
+.hidden { display: none; }
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
 
-/* Adjust input focus */
-:focus {
-  outline-color: var(--text-dark-brown);
-}
+/* END CLEAN CSS */
 
-/*-----------------------------------*\
-  #END RESET
-\*-----------------------------------*/
-
-/** This reset file removes all rounded corners, sets white background with brown highlighted cards and text, League Spartan for titles, Lato regular for body. Let me know if you want an optimized minified version for production. */
-
-
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
-
-
-/* Ready for integration into your project */
